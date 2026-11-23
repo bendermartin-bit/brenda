@@ -132,8 +132,10 @@ body.phone #dl, body.phone [data-step="3"] .meta { display: none; }
 body.phone .phone-note { display: block; }
 body.phone [data-step="3"] .lead { display: none; }
 [hidden] { display: none !important; }
-/* language switch, top right */
-.langs { position: absolute; top: 18px; right: 18px; display: flex; gap: 2px; background: var(--card); border: 1px solid var(--rule); border-radius: 999px; padding: 3px; z-index: 2; }
-.langs button, .langs a { font: 600 12px var(--sans); letter-spacing: .04em; color: var(--soft); background: none; border: 0; border-radius: 999px; padding: 5px 10px; cursor: pointer; text-decoration: none; }
-.langs [aria-pressed="true"], .langs .on { background: var(--ink); color: var(--paper); }
-main { position: relative; }
+/* language switch: plain words at the top right of the window */
+.langs { position: fixed; top: 22px; right: 28px; display: flex; align-items: center; gap: 4px; z-index: 5; }
+.langs button, .langs a { font: 600 13px var(--sans); letter-spacing: .06em; color: var(--faint); background: none; border: 0; padding: 4px 6px; cursor: pointer; text-decoration: none; transition: color .2s ease; }
+.langs button:hover, .langs a:hover { color: var(--soft); }
+.langs [aria-pressed="true"], .langs .on { color: var(--ink); }
+.langs > * + *::before { content: ""; display: inline-block; width: 1px; height: 11px; background: var(--rule); margin: 0 10px 0 -6px; vertical-align: -1px; }
+@media (max-width: 480px) { .langs { top: 14px; right: 16px; } }
