@@ -13,6 +13,7 @@
 <body class="flow-page">
 <main class="stage">
   <p class="mark">Temvila</p>
+  <div class="langs" role="group" aria-label="Sprache / Language"><button data-lang="de">DE</button><button data-lang="en">EN</button></div>
   <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
   <div class="brenda" aria-hidden="true">
@@ -22,44 +23,44 @@
 
   <!-- 0 · Einladungswort -->
   <section class="scene" data-step="0" data-clip="idle">
-    <h1>Schön, dass du da bist.</h1>
-    <p class="lead">Brendas Studio ist gerade nur mit Einladung offen. Wie lautet dein Einladungswort?</p>
+    <h1 data-i18n="gate_h">Schön, dass du da bist.</h1>
+    <p class="lead" data-i18n="gate_p">Brendas Studio ist gerade nur mit Einladung offen. Wie lautet dein Einladungswort?</p>
     <form id="gate" class="gate" autocomplete="off">
       <input id="word" type="text" inputmode="text" autocapitalize="none" spellcheck="false" placeholder="Einladungswort" aria-label="Einladungswort" required>
-      <button class="btn" type="submit">Weiter</button>
+      <button class="btn" type="submit" data-i18n="gate_b">Weiter</button>
     </form>
     <p class="hint" id="gate-hint" role="status"></p>
   </section>
 
   <!-- 1 · Brenda stellt sich vor -->
   <section class="scene" data-step="1" data-clip="wave" hidden>
-    <h1>Hallo, ich bin <span class="glow">Brenda.</span></h1>
-    <p class="lead">Ich leite ein kleines Studio auf deinem Mac. Du sagst mir, was du erreichen willst, und meine Crew macht sich an die Arbeit. Gesendet, gepostet oder bezahlt wird nichts ohne dein Ja.</p>
-    <button class="btn" data-go="2">Ich bin dabei</button>
-    <p class="small"><a href="datenschutz.html">Was passiert mit meinen Daten?</a></p>
+    <h1 data-i18n="hi_h">Hallo, ich bin <span class="glow">Brenda.</span></h1>
+    <p class="lead" data-i18n="hi_p">Ich leite ein kleines Studio auf deinem Mac. Du sagst mir, was du erreichen willst, und meine Crew macht sich an die Arbeit. Gesendet, gepostet oder bezahlt wird nichts ohne dein Ja.</p>
+    <button class="btn" data-go="2" data-i18n="hi_b">Ich bin dabei</button>
+    <p class="small" data-i18n="hi_l"><a href="datenschutz.html">Was passiert mit meinen Daten?</a></p>
   </section>
 
   <!-- 2 · Anmelden -->
   <section class="scene" data-step="2" data-clip="idle" hidden>
-    <h1>Wie darf ich dich nennen?</h1>
-    <p class="lead">Dann schicke ich dir deinen persönlichen Zugang per Mail.</p>
+    <h1 data-i18n="su_h">Wie darf ich dich nennen?</h1>
+    <p class="lead" data-i18n="su_p">Dann schicke ich dir deinen persönlichen Zugang per Mail.</p>
     <div class="signup card">
       <iframe id="tally" title="Anmeldung" data-src="https://tally.so/embed/xVJJr5?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="330" frameborder="0"></iframe>
     </div>
-    <p class="small"><button class="link" data-go="3">Ich habe meinen Zugang schon</button></p>
+    <p class="small" data-i18n="su_l"><button class="link" data-go="3">Ich habe meinen Zugang schon</button></p>
   </section>
 
   <!-- 3 · Laden -->
   <section class="scene" data-step="3" data-clip="cheer" hidden>
-    <h1><span id="hi">Wie schön!</span> <span class="glow">Hol dir das Studio.</span></h1>
-    <p class="lead">Während dein Zugang unterwegs ist, kannst du Brenda schon laden.</p>
+    <h1><span id="hi">Wie schön!</span> <span class="glow" data-i18n="dl_h">Hol dir das Studio.</span></h1>
+    <p class="lead" data-i18n="dl_p">Während dein Zugang unterwegs ist, kannst du Brenda schon laden.</p>
     <a id="dl" class="btn big" href="https://github.com/bendermartin-bit/brenda/releases/latest/download/Brenda.dmg" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
       Für Mac laden
     </a>
-    <p class="meta">macOS 12 oder neuer · etwa 470 MB</p>
+    <p class="meta" data-i18n="dl_m">macOS 12 oder neuer · etwa 470 MB</p>
     <div class="card phone-note">
-      <p><b>Du bist gerade am Handy.</b> Ich wohne auf dem Mac. Der Link kommt mit deinem Zugang noch einmal per Mail, öffne ihn einfach dort.</p>
+      <p data-i18n="dl_phone"><b>Du bist gerade am Handy.</b> Ich wohne auf dem Mac. Der Link kommt mit deinem Zugang noch einmal per Mail, öffne ihn einfach dort.</p>
     </div>
   </section>
 
@@ -68,38 +69,38 @@
     <p class="eyebrow" id="sub-count">Schritt 1 von 3</p>
     <div class="subs">
       <div class="sub" data-sub="0">
-        <h1>Ins Programme&#8209;Fach legen.</h1>
-        <p class="lead">Öffne „Brenda.dmg“ aus deinen Downloads und zieh mich in den Ordner „Programme“.</p>
-        <div class="pic"><span class="tile">B</span><span class="arrow">→</span><span class="folder">Programme</span></div>
+        <h1 data-i18n="s1_h">Ins Programme&#8209;Fach legen.</h1>
+        <p class="lead" data-i18n="s1_p">Öffne „Brenda.dmg“ aus deinen Downloads und zieh mich in den Ordner „Programme“.</p>
+        <div class="pic"><span class="tile">B</span><span class="arrow">→</span><span class="folder" data-i18n="s1_f">Programme</span></div>
       </div>
       <div class="sub" data-sub="1" hidden>
-        <h1>Zweimal Ja sagen.</h1>
-        <p class="lead">Beim ersten Start fragt dein Mac, ob du mich öffnen willst: <b>„Öffnen“</b>. Danach möchte ich in „Dokumente“ ein Fach für dein Studio anlegen: <b>„Erlauben“</b>.</p>
+        <h1 data-i18n="s2_h">Zweimal Ja sagen.</h1>
+        <p class="lead" data-i18n="s2_p">Beim ersten Start fragt dein Mac, ob du mich öffnen willst: <b>„Öffnen“</b>. Danach möchte ich in „Dokumente“ ein Fach für dein Studio anlegen: <b>„Erlauben“</b>.</p>
       </div>
       <div class="sub" data-sub="2" hidden>
-        <h1>Mit der KI verbinden.</h1>
-        <p class="lead">Tipp auf <b>„Brenda lädt dich ein“</b> und füg den Schlüssel aus deiner Mail ein. 25 $ Kontingent, es kostet dich nichts. Hast du schon Claude oder ChatGPT, geht auch „Mit deiner eigenen KI“.</p>
+        <h1 data-i18n="s3_h">Mit der KI verbinden.</h1>
+        <p class="lead" data-i18n="s3_p">Tipp auf <b>„Brenda lädt dich ein“</b> und füg den Schlüssel aus deiner Mail ein. 25 $ Kontingent, es kostet dich nichts. Hast du schon Claude oder ChatGPT, geht auch „Mit deiner eigenen KI“.</p>
       </div>
     </div>
     <div class="row">
-      <button class="btn ghost" id="sub-back">Zurück</button>
+      <button class="btn ghost" id="sub-back" data-i18n="back">Zurück</button>
       <button class="btn" id="sub-next">Geschafft</button>
     </div>
   </section>
 
   <!-- 5 · Los geht's -->
   <section class="scene" data-step="5" data-clip="wink" hidden>
-    <h1>Wir sehen uns <span class="glow">im Studio.</span></h1>
-    <p class="lead">Sag mir einfach, was du vorhast. Ich frage dich zwischendurch kurz, wie es läuft: nach deinem ersten Ergebnis, nach einer Woche und nach zwei Wochen. Zwei Minuten, versprochen.</p>
+    <h1 data-i18n="end_h">Wir sehen uns <span class="glow">im Studio.</span></h1>
+    <p class="lead" data-i18n="end_p">Sag mir einfach, was du vorhast. Ich frage dich zwischendurch kurz, wie es läuft: nach deinem ersten Ergebnis, nach einer Woche und nach zwei Wochen. Zwei Minuten, versprochen.</p>
     <div class="card feedback">
-      <p><b>Deine Meinung macht mich besser.</b></p>
-      <p>Fällt dir etwas auf, ob schön oder hakelig: Im Studio unter Einstellungen › Rückmeldung. Und wenn gar nichts geht: <a class="addr" href="mailto:feedback@temvila.com">feedback@temvila.com</a></p>
+      <p data-i18n="fb_h"><b>Deine Meinung macht mich besser.</b></p>
+      <p data-i18n="fb_p">Fällt dir etwas auf, ob schön oder hakelig: Im Studio unter Einstellungen › Rückmeldung. Und wenn gar nichts geht: <a class="addr" href="mailto:feedback@temvila.com">feedback@temvila.com</a></p>
     </div>
-    <p class="small"><button class="link" data-go="3">Noch einmal laden</button></p>
+    <p class="small" data-i18n="again"><button class="link" data-go="3">Noch einmal laden</button></p>
   </section>
 
   <footer>
-    <nav aria-label="Rechtliches"><a href="datenschutz.html">Datenschutz</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="impressum.html">Impressum</a></nav>
+    <nav aria-label="Rechtliches" data-i18n="legal"><a href="datenschutz.html">Datenschutz</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="impressum.html">Impressum</a></nav>
   </footer>
 </main>
 
@@ -117,6 +118,33 @@
     set(v) { try { sessionStorage.setItem(KEY, JSON.stringify(v)); } catch {} },
   };
   let step = 0, sub = 0;
+  // Language: German or English, from the viewer's choice (kept on this device) or the browser; German is the default.
+  const EN = {"gate_h": "Lovely to see you.", "gate_p": "Brenda’s studio is open by invitation only right now. What’s your invitation word?", "gate_b": "Continue", "hi_h": "Hi, I’m <span class=\"glow\">Brenda.</span>", "hi_p": "I run a small studio on your Mac. You tell me what you want to achieve, and my crew gets to work. Nothing is sent, posted or paid without your yes.", "hi_b": "I’m in", "hi_l": "<a href=\"privacy.html\">What happens to my data?</a>", "su_h": "What may I call you?", "su_p": "Then I’ll send you your personal access by mail.", "su_l": "<button class=\"link\" data-go=\"3\">I already have my access</button>", "dl_h": "Get the studio.", "dl_p": "While your access is on its way, you can already download it.", "dl_m": "macOS 12 or later · about 470 MB", "dl_phone": "<b>You’re on your phone right now.</b> I live on the Mac. The link comes again by mail with your access, just open it there.", "s1_h": "Into Applications.", "s1_p": "Open “Brenda.dmg” from your Downloads and drag me into the “Applications” folder.", "s1_f": "Applications", "s2_h": "Say yes twice.", "s2_p": "On the first start your Mac asks whether you want to open me: <b>“Open”</b>. Then I’d like to make a place for your studio in “Documents”: <b>“Allow”</b>.", "s3_h": "Connect the AI.", "s3_p": "Tap <b>“Brenda invites you”</b> and paste the key from your mail. 25 $ of credit, it costs you nothing. Already have Claude or ChatGPT? “With your own AI” works too.", "back": "Back", "end_h": "See you <span class=\"glow\">in the studio.</span>", "end_p": "Just tell me what you have in mind. Now and then I’ll ask how it’s going: after your first result, after one week and after two weeks. Two minutes, promised.", "fb_h": "<b>Your opinion makes me better.</b>", "fb_p": "Notice something, nice or clunky? In the studio under Settings › Feedback. And if nothing works at all: <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>", "again": "<button class=\"link\" data-go=\"3\">Download again</button>", "legal": "<a href=\"privacy.html\">Privacy</a><a href=\"terms.html\">Terms</a><a href=\"imprint.html\">Imprint</a>"};
+  const DE = {};
+  document.querySelectorAll('[data-i18n]').forEach(el => { DE[el.dataset.i18n] = el.innerHTML; });
+  const TXT = {
+    de: { word: 'Einladungswort', wrong: 'Das passt noch nicht. Schau noch einmal in deine Einladung.', step: (i) => `Schritt ${i} von 3`, done: 'Geschafft', finish: 'Fertig', hi: 'Wie schön!', hiName: (n) => `Wie schön, ${n}!`, signup: 'Anmeldung' },
+    en: { word: 'Invitation word', wrong: 'That’s not it yet. Have another look at your invitation.', step: (i) => `Step ${i} of 3`, done: 'Done', finish: 'Finish', hi: 'Wonderful!', hiName: (n) => `Wonderful, ${n}!`, signup: 'Sign-up' },
+  };
+  let lang = 'de';
+  try { lang = localStorage.getItem('temvila-lang') || ((navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en'); } catch { lang = (navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en'; }
+  let hiName = '';
+  function applyLang(l) {
+    lang = l === 'en' ? 'en' : 'de';
+    try { localStorage.setItem('temvila-lang', lang); } catch {}
+    document.documentElement.lang = lang;
+    const src = lang === 'en' ? EN : DE;
+    document.querySelectorAll('[data-i18n]').forEach(el => { if (src[el.dataset.i18n] != null) el.innerHTML = src[el.dataset.i18n]; });
+    document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    const w = $('#word'); w.placeholder = TXT[lang].word; w.setAttribute('aria-label', TXT[lang].word);
+    if ($('#gate-hint').textContent) $('#gate-hint').textContent = TXT[lang].wrong;
+    $('#hi').textContent = hiName ? TXT[lang].hiName(hiName) : TXT[lang].hi;
+    $('#tally').title = TXT[lang].signup;
+    bindGo();
+    if (step === 4) showSub(sub);
+  }
+  document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
 
   function clip(name) {
     const src = `a/brenda-${name}.webp`;
@@ -145,9 +173,9 @@
   function showSub(i) {
     sub = i;
     document.querySelectorAll('.sub').forEach(s => { s.hidden = +s.dataset.sub !== i; s.classList.toggle('in', +s.dataset.sub === i); });
-    $('#sub-count').textContent = `Schritt ${i + 1} von 3`;
+    $('#sub-count').textContent = TXT[lang].step(i + 1);
     $('#sub-back').hidden = i === 0;
-    $('#sub-next').textContent = i === 2 ? 'Fertig' : 'Geschafft';
+    $('#sub-next').textContent = i === 2 ? TXT[lang].finish : TXT[lang].done;
   }
 
   async function hash(t) {
@@ -158,10 +186,10 @@
     e.preventDefault();
     const w = $('#word').value.trim().toLowerCase().replace(/\s+/g, '-');
     if (await hash(w) === WORD) { store.set({ ok: true, step: 1 }); show(1); return; }
-    $('#gate-hint').textContent = 'Das passt noch nicht. Schau noch einmal in deine Einladung.';
+    $('#gate-hint').textContent = TXT[lang].wrong;
     $('#gate').classList.remove('shake'); void $('#gate').offsetWidth; $('#gate').classList.add('shake');
   });
-  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => show(+b.dataset.go)));
+  function bindGo() { document.querySelectorAll('[data-go]').forEach(b => { if (!b.dataset.bound) { b.dataset.bound = '1'; b.addEventListener('click', () => show(+b.dataset.go)); } }); }
   $('#dl').addEventListener('click', () => setTimeout(() => show(4), 900));
   $('#sub-back').addEventListener('click', () => showSub(Math.max(0, sub - 1)));
   $('#sub-next').addEventListener('click', () => sub < 2 ? showSub(sub + 1) : show(5));
@@ -173,7 +201,7 @@
       const d = JSON.parse(e.data);
       const f = (d.payload && d.payload.fields || []).find(x => x.type === 'INPUT_TEXT');
       const name = f && String(f.answer && (f.answer.value ?? f.answer) || '').trim().slice(0, 30);
-      if (name) $('#hi').textContent = `Wie schön, ${name}!`;
+      if (name) { hiName = name; $('#hi').textContent = TXT[lang].hiName(name); }
     } catch {}
     setTimeout(() => show(3), 1200);
   });
@@ -183,6 +211,7 @@
   });
 
   if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && !/Macintosh/.test(navigator.userAgent)) document.body.classList.add('phone');
+  applyLang(lang);
   const saved = store.get();
   show(saved && saved.ok ? Math.min(saved.step || 1, 5) : 0);
 })();

@@ -10,6 +10,7 @@
 </head>
 <body>
 <main class="doc">
+  <div class="langs" role="group" aria-label="Sprache"><a class="on" href="nutzungsbedingungen.html" lang="de" data-set="de">DE</a><a href="terms.html" lang="en" data-set="en">EN</a></div>
   <p class="mark"><a href="./">Temvila</a></p>
   <a class="back" href="./">‹ Zurück</a>
   <h1>Nutzungsbedingungen für den Test</h1>
@@ -53,5 +54,6 @@
     <nav aria-label="Rechtliches"><a href="./">Start</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></nav>
   </footer>
 </main>
+<script>document.querySelectorAll('[data-set]').forEach(a => a.addEventListener('click', () => { try { localStorage.setItem('temvila-lang', a.dataset.set); } catch {} }));</script>
 </body>
 </html>
