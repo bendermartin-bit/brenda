@@ -139,3 +139,4 @@ body.phone [data-step="3"] .lead { display: none; }
 .langs [aria-pressed="true"], .langs .on { color: var(--ink); }
 .langs > * + *::before { content: ""; display: inline-block; width: 1px; height: 11px; background: var(--rule); margin: 0 10px 0 -6px; vertical-align: -1px; }
 @media (max-width: 480px) { .langs { top: 14px; right: 16px; } }
+.meta a { color: var(--soft); }
