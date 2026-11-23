@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Brenda Studio</title>
+<meta name="description" content="Eine Einladung in Brendas Studio.">
+<link rel="icon" href="brenda.png">
+<link rel="preload" as="image" href="a/brenda-wave.webp">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="flow-page">
+<main class="stage">
+  <p class="mark">Brenda Studio</p>
+  <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="brenda" aria-hidden="true">
+    <img id="brenda" src="a/brenda-idle.webp" alt="" width="380" height="470">
+    <div class="floor"></div>
+  </div>
+
+  <!-- 0 · Einladungswort -->
+  <section class="scene" data-step="0" data-clip="idle">
+    <h1>Schön, dass du da bist.</h1>
+    <p class="lead">Brendas Studio ist gerade nur mit Einladung offen. Wie lautet dein Einladungswort?</p>
+    <form id="gate" class="gate" autocomplete="off">
+      <input id="word" type="text" inputmode="text" autocapitalize="none" spellcheck="false" placeholder="Einladungswort" aria-label="Einladungswort" required>
+      <button class="btn" type="submit">Weiter</button>
+    </form>
+    <p class="hint" id="gate-hint" role="status"></p>
+  </section>
+
+  <!-- 1 · Brenda stellt sich vor -->
+  <section class="scene" data-step="1" data-clip="wave" hidden>
+    <h1>Hallo, ich bin <span class="glow">Brenda.</span></h1>
+    <p class="lead">Ich leite ein kleines Studio auf deinem Mac. Du sagst mir, was du erreichen willst, und meine Crew macht sich an die Arbeit. Nichts geht raus ohne dein Ja.</p>
+    <button class="btn" data-go="2">Ich bin dabei</button>
+    <p class="small"><a href="datenschutz.html">Was passiert mit meinen Daten?</a></p>
+  </section>
+
+  <!-- 2 · Anmelden -->
+  <section class="scene" data-step="2" data-clip="idle" hidden>
+    <h1>Wie darf ich dich nennen?</h1>
+    <p class="lead">Dann schicke ich dir deinen persönlichen Zugang per Mail.</p>
+    <div class="signup card">
+      <iframe id="tally" title="Anmeldung" data-src="https://tally.so/embed/xVJJr5?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="330" frameborder="0"></iframe>
+    </div>
+    <p class="small"><button class="link" data-go="3">Ich habe meinen Zugang schon</button></p>
+  </section>
+
+  <!-- 3 · Laden -->
+  <section class="scene" data-step="3" data-clip="cheer" hidden>
+    <h1><span id="hi">Wie schön!</span> <span class="glow">Hol dir das Studio.</span></h1>
+    <p class="lead">Während dein Zugang unterwegs ist, kannst du Brenda schon laden.</p>
+    <a id="dl" class="btn big" href="https://github.com/bendermartin-bit/brenda/releases/latest/download/Brenda.dmg" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
+      Für Mac laden
+    </a>
+    <p class="meta">macOS 12 oder neuer · etwa 470 MB</p>
+    <div class="card phone-note">
+      <p><b>Du bist gerade am Handy.</b> Ich wohne auf dem Mac. Der Link kommt mit deinem Zugang noch einmal per Mail, öffne ihn einfach dort.</p>
+    </div>
+  </section>
+
+  <!-- 4 · Einrichten, ein Schritt nach dem anderen -->
+  <section class="scene" data-step="4" data-clip="idle" hidden>
+    <p class="eyebrow" id="sub-count">Schritt 1 von 3</p>
+    <div class="subs">
+      <div class="sub" data-sub="0">
+        <h1>Ins Programme&#8209;Fach legen.</h1>
+        <p class="lead">Öffne „Brenda.dmg“ aus deinen Downloads und zieh mich in den Ordner „Programme“.</p>
+        <div class="pic"><span class="tile">B</span><span class="arrow">→</span><span class="folder">Programme</span></div>
+      </div>
+      <div class="sub" data-sub="1" hidden>
+        <h1>Zweimal Ja sagen.</h1>
+        <p class="lead">Beim ersten Start fragt dein Mac, ob du mich öffnen willst: <b>„Öffnen“</b>. Danach möchte ich in „Dokumente“ ein Fach für dein Studio anlegen: <b>„Erlauben“</b>.</p>
+      </div>
+      <div class="sub" data-sub="2" hidden>
+        <h1>Mit der KI verbinden.</h1>
+        <p class="lead">Tipp auf <b>„Brenda lädt dich ein“</b> und füg den Schlüssel aus deiner Mail ein. 25 $ Kontingent, es kostet dich nichts. Hast du schon Claude oder ChatGPT, geht auch „Mit deiner eigenen KI“.</p>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn ghost" id="sub-back">Zurück</button>
+      <button class="btn" id="sub-next">Geschafft</button>
+    </div>
+  </section>
+
+  <!-- 5 · Los geht's -->
+  <section class="scene" data-step="5" data-clip="wink" hidden>
+    <h1>Wir sehen uns <span class="glow">im Studio.</span></h1>
+    <p class="lead">Sag mir einfach, was du vorhast. Ich frage dich zwischendurch kurz, wie es läuft: nach deinem ersten Ergebnis, nach einer Woche und nach zwei Wochen. Zwei Minuten, versprochen.</p>
+    <div class="card feedback">
+      <p><b>Deine Meinung macht mich besser.</b></p>
+      <p>Fällt dir etwas auf, ob schön oder hakelig: Im Studio unter Einstellungen › Rückmeldung. Und wenn gar nichts geht: <span class="addr">[Rückmelde-Adresse]</span></p>
+    </div>
+    <p class="small"><button class="link" data-go="3">Noch einmal laden</button></p>
+  </section>
+
+  <footer>
+    <nav aria-label="Rechtliches"><a href="datenschutz.html">Datenschutz</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="impressum.html">Impressum</a></nav>
+  </footer>
+</main>
+
+<script>
+(() => {
+  // The invitation word only keeps the page out of casual view; the real access is the personal key from the mail.
+  const WORD = '05c04ec025e2429e8ef0dc571cd5fa22ff065d55f6014083ffc61b15d4203a9c';
+  const KEY = 'brenda-einladung';
+  const $ = (s, el = document) => el.querySelector(s);
+  const scenes = [...document.querySelectorAll('.scene')];
+  const dots = [...document.querySelectorAll('.dots i')];
+  const img = $('#brenda');
+  const store = {
+    get() { try { return JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch { return null; } },
+    set(v) { try { sessionStorage.setItem(KEY, JSON.stringify(v)); } catch {} },
+  };
+  let step = 0, sub = 0;
+
+  function clip(name) {
+    const src = `a/brenda-${name}.webp`;
+    if (img.getAttribute('src') === src) return;
+    img.classList.remove('pop'); void img.offsetWidth;
+    img.src = src; img.classList.add('pop');
+  }
+  function show(n) {
+    if (n > 0 && !(store.get() || {}).ok) n = 0;
+    step = n;
+    scenes.forEach(s => {
+      const on = +s.dataset.step === n;
+      s.hidden = !on;
+      s.classList.toggle('in', on);
+    });
+    dots.forEach((d, i) => d.classList.toggle('on', i < n));
+    document.body.dataset.step = n;
+    const scene = scenes[n];
+    clip(scene.dataset.clip);
+    if (n === 2) { const f = $('#tally'); if (!f.src) f.src = f.dataset.src; }
+    if (n === 4) showSub(0);
+    if (n > 0) store.set({ ...(store.get() || {}), ok: true, step: n });
+    const h = scene.querySelector('h1'); if (h && n > 0) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function showSub(i) {
+    sub = i;
+    document.querySelectorAll('.sub').forEach(s => { s.hidden = +s.dataset.sub !== i; s.classList.toggle('in', +s.dataset.sub === i); });
+    $('#sub-count').textContent = `Schritt ${i + 1} von 3`;
+    $('#sub-back').hidden = i === 0;
+    $('#sub-next').textContent = i === 2 ? 'Fertig' : 'Geschafft';
+  }
+
+  async function hash(t) {
+    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t));
+    return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+  }
+  $('#gate').addEventListener('submit', async e => {
+    e.preventDefault();
+    const w = $('#word').value.trim().toLowerCase().replace(/\s+/g, '-');
+    if (await hash(w) === WORD) { store.set({ ok: true, step: 1 }); show(1); return; }
+    $('#gate-hint').textContent = 'Das passt noch nicht. Schau noch einmal in deine Einladung.';
+    $('#gate').classList.remove('shake'); void $('#gate').offsetWidth; $('#gate').classList.add('shake');
+  });
+  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => show(+b.dataset.go)));
+  $('#dl').addEventListener('click', () => setTimeout(() => show(4), 900));
+  $('#sub-back').addEventListener('click', () => showSub(Math.max(0, sub - 1)));
+  $('#sub-next').addEventListener('click', () => sub < 2 ? showSub(sub + 1) : show(5));
+
+  // Tally tells the page when the sign-up was sent; then Brenda greets by first name.
+  window.addEventListener('message', e => {
+    if (e.origin !== 'https://tally.so' || typeof e.data !== 'string' || !e.data.includes('Tally.FormSubmitted')) return;
+    try {
+      const d = JSON.parse(e.data);
+      const f = (d.payload && d.payload.fields || []).find(x => x.type === 'INPUT_TEXT');
+      const name = f && String(f.answer && (f.answer.value ?? f.answer) || '').trim().slice(0, 30);
+      if (name) $('#hi').textContent = `Wie schön, ${name}!`;
+    } catch {}
+    setTimeout(() => show(3), 1200);
+  });
+  window.addEventListener('message', e => {
+    if (e.origin !== 'https://tally.so' || typeof e.data !== 'string' || !e.data.includes('Tally.Resize')) return;
+    try { const h = JSON.parse(e.data).payload.height; if (h > 100 && h < 2000) $('#tally').height = h; } catch {}
+  });
+
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && !/Macintosh/.test(navigator.userAgent)) document.body.classList.add('phone');
+  const saved = store.get();
+  show(saved && saved.ok ? Math.min(saved.step || 1, 5) : 0);
+})();
+</script>
+</body>
+</html>
