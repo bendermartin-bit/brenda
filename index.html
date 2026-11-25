@@ -45,7 +45,7 @@
     <p class="lead" data-i18n="dl_p">Dein Code passt. Jetzt kannst du mich laden.</p>
     <a id="dl" class="btn big" href="https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila.dmg" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
-      Für Mac laden
+      <span data-i18n="dl_b">Für Mac laden</span>
     </a>
     <p class="meta" data-i18n="dl_m">macOS 12 oder neuer · etwa 260 MB · <a id="intel" href="https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg" download>Älterer Mac mit Intel-Chip?</a></p>
     <div class="card phone-note">
@@ -111,7 +111,7 @@
   };
   let step = 0, sub = 0;
   // Language: German or English, from the viewer's choice (kept on this device) or the browser; German is the default.
-  const EN = {"hi_h": "Hi, I’m <span class=\"glow\">Brenda.</span>", "hi_p": "I run a small studio on your Mac. You tell me what you want to achieve, and my crew gets to work.", "hi_b": "I’m in", "hi_l": "<a href=\"privacy.html\">What happens to my data?</a>", "cd_h": "Have a look in your <span class=\"glow\">inbox.</span>", "cd_p": "Your personal code comes with your invitation by mail. Tap the link there or paste the code here. No invitation yet, or nothing arrived? Check your spam folder too, or write to <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>.", "cd_b": "Continue", "dl_h": "Get the studio.", "dl_p": "Your code fits. Now you can download me.", "dl_m": "macOS 12 or later · about 260 MB · <a id=\"intel\" href=\"https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg\" download>Older Mac with an Intel chip?</a>", "dl_phone": "<b>You’re on your phone right now.</b> I live on the Mac. The link comes again by mail with your code, just open the link from your mail there.", "s1_h": "Into Applications.", "s1_p": "Open “Temvila.dmg” from your Downloads and drag Temvila into the “Applications” folder. That’s where I live. If your Mac asks on the first start, just say <b>“Open”</b> and <b>“Allow”</b>.", "s1_f": "Applications", "s3_h": "Connect AI, add code.", "s3_p": "Tap <b>“Brenda invites you”</b> and paste the AI key from your mail: $25 to try it out, on us. Already have Claude or ChatGPT? “With your own AI” works too. Paste the code under <b>Settings › Your studio &amp; money</b>. Done.", "op_h": "Now: open Temvila.", "op_p": "Tap <b>“Open Temvila”</b> here. If your Mac asks, just say <b>“Open”</b> or <b>“Allow”</b>. In Temvila, tap <b>“Set up”</b>, and the AI and Studio Pro are there. Nothing to type.", "op_b": "Open Temvila", "op_c": "Not working? Copy the invitation", "back": "Back", "end_h": "See you <span class=\"glow\">in the studio.</span>", "end_p": "Just tell me what you have in mind. Now and then I’ll ask how it’s going: after your first result, after one week and after two weeks. Two minutes, promised.", "fb_h": "<b>Your opinion makes me better.</b>", "fb_p": "Notice something, nice or clunky? In the studio under Settings › Feedback. And if nothing works at all: <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>", "again": "<button class=\"link\" data-go=\"4\">Download again</button>", "legal": "<a href=\"privacy.html\">Privacy</a><a href=\"terms.html\">Terms</a><a href=\"imprint.html\">Imprint</a>"};
+  const EN = {"hi_h": "Hi, I’m <span class=\"glow\">Brenda.</span>", "hi_p": "I run a small studio on your Mac. You tell me what you want to achieve, and my crew gets to work.", "hi_b": "I’m in", "hi_l": "<a href=\"privacy.html\">What happens to my data?</a>", "cd_h": "Have a look in your <span class=\"glow\">inbox.</span>", "cd_p": "Your personal code comes with your invitation by mail. Tap the link there or paste the code here. No invitation yet, or nothing arrived? Check your spam folder too, or write to <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>.", "cd_b": "Continue", "dl_h": "Get the studio.", "dl_p": "Your code fits. Now you can download me.", "dl_b": "Download for Mac", "dl_m": "macOS 12 or later · about 260 MB · <a id=\"intel\" href=\"https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg\" download>Older Mac with an Intel chip?</a>", "dl_phone": "<b>You’re on your phone right now.</b> I live on the Mac. The link comes again by mail with your code, just open the link from your mail there.", "s1_h": "Into Applications.", "s1_p": "Open “Temvila.dmg” from your Downloads and drag Temvila into the “Applications” folder. That’s where I live. If your Mac asks on the first start, just say <b>“Open”</b> and <b>“Allow”</b>.", "s1_f": "Applications", "s3_h": "Connect AI, add code.", "s3_p": "Tap <b>“Brenda invites you”</b> and paste the AI key from your mail: $25 to try it out, on us. Already have Claude or ChatGPT? “With your own AI” works too. Paste the code under <b>Settings › Your studio &amp; money</b>. Done.", "op_h": "Now: open Temvila.", "op_p": "Tap <b>“Open Temvila”</b> here. If your Mac asks, just say <b>“Open”</b> or <b>“Allow”</b>. In Temvila, tap <b>“Set up”</b>, and the AI and Studio Pro are there. Nothing to type.", "op_b": "Open Temvila", "op_c": "Not working? Copy the invitation", "back": "Back", "end_h": "See you <span class=\"glow\">in the studio.</span>", "end_p": "Just tell me what you have in mind. Now and then I’ll ask how it’s going: after your first result, after one week and after two weeks. Two minutes, promised.", "fb_h": "<b>Your opinion makes me better.</b>", "fb_p": "Notice something, nice or clunky? In the studio under Settings › Feedback. And if nothing works at all: <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>", "again": "<button class=\"link\" data-go=\"4\">Download again</button>", "legal": "<a href=\"privacy.html\">Privacy</a><a href=\"terms.html\">Terms</a><a href=\"imprint.html\">Imprint</a>"};
   const DE = {};
   document.querySelectorAll('[data-i18n]').forEach(el => { DE[el.dataset.i18n] = el.innerHTML; });
   const TXT = {
@@ -202,7 +202,7 @@
   $('#code-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const raw = $('#code').value.trim();
-    if (raw.includes('~')) { takeInvite(raw); return; }
+    if (raw.includes('~') || SHORT.test(raw.replace(/\s+/g, ''))) { takeInvite(raw); return; }
     const why = await checkCode(raw);
     if (why) { hint(why); return; }
     hint(null); store.set({ ...(store.get() || {}), code: true }); show(4);
@@ -211,10 +211,20 @@
   // format the app reads (ai-agency packages/orchestration/src/invite-link.ts). The page checks only the code's signature and
   // keeps the invitation in this tab (sessionStorage) for "Temvila öffnen"; the key stays sealed, only the app opens it.
   const INVITE = /^TV1-[A-Za-z0-9_-]{20,400}\.[A-Za-z0-9_-]{86}~[A-Za-z0-9_-]{30,600}~[A-Za-z0-9_-]{0,220}$/;
+  // The invitation through the KI-Dienst (Martin 25.11.2026, no key in the mail): a one-time code XXXX-XXXX-XXXX and maybe "~"
+  // and the first name. The page cannot check it (only the KI-Dienst knows it, and it works once): it only takes its form;
+  // the app redeems it after the person's tap.
+  const SHORT = /^[A-HJ-NP-Za-hj-np-z2-9]{4}-?[A-HJ-NP-Za-hj-np-z2-9]{4}-?[A-HJ-NP-Za-hj-np-z2-9]{4}(~[A-Za-z0-9_-]{0,220})?$/;
+  const shortOf = (t) => { const [c, n] = t.replace(/\s+/g, '').split('~'); const k = c.toUpperCase().replace(/-/g, ''); return `${k.slice(0, 4)}-${k.slice(4, 8)}-${k.slice(8)}${n ? `~${n}` : ''}`; };
   const invite = () => (store.get() || {}).invite || null;
   const nameOf = (part) => { try { return new TextDecoder().decode(b64u(part)).replace(/[\p{Cc}\p{Cf}<>&]/gu, '').trim().slice(0, 40); } catch { return ''; } };
   async function takeInvite(raw) {
     const text = String(raw || '').trim();
+    if (SHORT.test(text.replace(/\s+/g, ''))) {
+      const inv = shortOf(text);
+      hint(null); store.set({ ...(store.get() || {}), code: true, invite: inv, name: nameOf(inv.split('~')[1] || '') });
+      applyLang(lang); show(4); return;
+    }
     if (!INVITE.test(text)) { show(3); hint('wrong'); return; }
     const [code, , name] = text.split('~');
     const why = await checkCode(code);
