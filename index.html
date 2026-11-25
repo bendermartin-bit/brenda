@@ -182,7 +182,7 @@
   // The personal code (signed on Martin's Mac, Ed25519): the page checks the signature with the public key below and the last
   // day to redeem, then opens the download. The app checks the same code again (Studio Pro). The DMG itself stays on GitHub's
   // public releases: this keeps the page's flow personal, the real licence is the app's check.
-  const KEYS = []; // raw Ed25519 public keys, base64 — the same as in the app's studio-default/einladung.json
+  const KEYS = ['5ds2tMIjyV6ULfsfYy5PHBBuMa6UWCZsTlV+I2IxLsc=']; // raw Ed25519 public keys, base64 — the same as in the app's studio-default/einladung.json
   const b64u = (t) => Uint8Array.from(atob(t.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((t.length + 3) % 4)), (c) => c.charCodeAt(0));
   const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
   async function checkCode(raw) {
