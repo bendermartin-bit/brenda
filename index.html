@@ -14,7 +14,6 @@
 <main class="stage">
   <p class="mark">Temvila</p>
   <div class="langs" role="group" aria-label="Sprache / Language"><button data-lang="de">DE</button><button data-lang="en">EN</button></div>
-  <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
   <div class="brenda" aria-hidden="true">
     <img id="brenda" src="a/brenda-idle.webp" alt="" width="380" height="470">
@@ -105,7 +104,6 @@
   const KEY = 'brenda-einladung';
   const $ = (s, el = document) => el.querySelector(s);
   const scenes = [...document.querySelectorAll('.scene')];
-  const dots = [...document.querySelectorAll('.dots i')];
   const img = $('#brenda');
   const store = {
     get() { try { return JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch { return null; } },
@@ -155,8 +153,6 @@
       s.hidden = !on;
       s.classList.toggle('in', on);
     });
-    const at = n > 2 ? n - 1 : n; // no step 2 any more (the sign-up form went, Martin 25.11.)
-    dots.forEach((d, i) => d.classList.toggle('on', i < at - 1));
     document.body.dataset.step = n;
     const scene = scenes.find(s => +s.dataset.step === n);
     clip(scene.dataset.clip);

@@ -79,10 +79,6 @@ footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
 /* Guided invitation flow (index.html): one scene at a time, Brenda on top. */
 .flow-page main.stage { max-width: 560px; text-align: center; padding-top: 40px; min-height: 100vh; display: flex; flex-direction: column; }
 .stage .mark { margin-bottom: 14px; }
-.dots { display: flex; justify-content: center; gap: 8px; height: 6px; margin-bottom: 4px; }
-.dots i { width: 22px; height: 4px; border-radius: 4px; background: var(--rule); transition: background .5s ease; }
-.dots i.on { background: linear-gradient(90deg, var(--sun-a), var(--sun-b)); }
-body[data-step="0"] .dots { visibility: hidden; }
 .brenda { position: relative; height: 250px; margin: 6px auto 0; width: 220px; }
 .brenda img { position: relative; z-index: 1; height: 250px; width: auto; display: block; margin: 0 auto; transform-origin: 50% 100%; }
 .brenda .floor { position: absolute; left: 50%; bottom: 4px; width: 130px; height: 18px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(120, 80, 20, .22), rgba(120, 80, 20, 0)); }
@@ -138,3 +134,7 @@ body.phone [data-step="3"] .lead { display: none; }
 .langs > * + *::before { content: ""; display: inline-block; width: 1px; height: 11px; background: var(--rule); margin: 0 10px 0 -6px; vertical-align: -1px; }
 @media (max-width: 480px) { .langs { top: 14px; right: 16px; } }
 .meta a { color: var(--soft); }
+
+/* Martin 25.11.: the greeting on its own line, room between a big button and the line below it */
+#hi { display: block; }
+.btn.big + .meta, .btn.big + .small { margin-top: 26px; }
