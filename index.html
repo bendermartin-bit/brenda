@@ -230,7 +230,7 @@
     if (!heard) { heard = true; $('#tally-wait').hidden = true; }
     const h = d && d.payload && +d.payload.height;
     if (h > 100 && h < 3000) $('#tally').height = Math.ceil(h) + 8;
-    if (d && d.event === 'Tally.FormSubmitted' && !sent) { sent = true; setTimeout(() => { if (step === 2) show(3); }, 5000); }
+    if (d && d.event === 'Tally.FormSubmitted' && !sent) { sent = true; setTimeout(() => { if (step === 2) show(3); }, 300); } // our own next step at once: never Tally's thank-you page
   });
 
   if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && !/Macintosh/.test(navigator.userAgent)) document.body.classList.add('phone');
