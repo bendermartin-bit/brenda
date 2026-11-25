@@ -31,10 +31,11 @@
 
   <!-- 2 · Anmelden -->
   <section class="scene" data-step="2" data-clip="idle" hidden>
-    <h1 data-i18n="su_h">Wie darf ich dich nennen?</h1>
-    <p class="lead" data-i18n="su_p">Dann schicke ich dir deinen persönlichen Einladungscode per Mail.</p>
+    <h1 data-i18n="su_h">Wohin darf ich deinen <span class="glow">Code</span> schicken?</h1>
+    <p class="lead" data-i18n="su_p">Trag die Mail-Adresse ein, mit der du eingeladen wurdest. Dein persönlicher Code kommt dann von selbst, meist in wenigen Minuten.</p>
     <div class="signup card">
-      <iframe id="tally" title="Anmeldung" data-src="https://tally.so/embed/xVJJr5?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="330" frameborder="0"></iframe>
+      <p class="hint tally-wait" id="tally-wait" role="status" data-i18n="su_wait">Einen Moment, das Formular lädt …</p>
+      <iframe id="tally" title="Anmeldung" data-src="https://tally.so/embed/xVJJr5?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" width="100%" height="460" frameborder="0"></iframe>
     </div>
     <p class="small" data-i18n="su_l"><button class="link" data-go="3">Ich habe meinen Code schon</button></p>
   </section>
@@ -42,7 +43,7 @@
   <!-- 3 · Der persönliche Code aus der Mail öffnet den Download -->
   <section class="scene" data-step="3" data-clip="idle" hidden>
     <h1 data-i18n="cd_h">Schau in dein <span class="glow">Postfach.</span></h1>
-    <p class="lead" data-i18n="cd_p">Sobald ich deine Anmeldung gesehen habe, schicke ich dir deinen persönlichen Code. Mit ihm geht es hier weiter. Am einfachsten tippst du in der Mail auf den Link.</p>
+    <p class="lead" data-i18n="cd_p">Hast du dich mit der Adresse angemeldet, mit der du eingeladen wurdest, kommt dein persönlicher Code meist in ein paar Minuten. Tipp in der Mail auf den Link oder füg den Code hier ein. Kommt nichts, schreib uns an <a class="addr" href="mailto:feedback@temvila.com">feedback@temvila.com</a>.</p>
     <form id="code-form" class="gate" autocomplete="off">
       <input id="code" type="text" inputmode="text" autocapitalize="none" spellcheck="false" required>
       <button class="btn" type="submit" data-i18n="cd_b">Weiter</button>
@@ -66,25 +67,21 @@
 
   <!-- 5 · Einrichten, ein Schritt nach dem anderen -->
   <section class="scene" data-step="5" data-clip="idle" hidden>
-    <p class="eyebrow" id="sub-count">Schritt 1 von 3</p>
+    <p class="eyebrow" id="sub-count">Schritt 1 von 2</p>
     <div class="subs">
       <div class="sub" data-sub="0">
         <h1 data-i18n="s1_h">Ins Programme&#8209;Fach legen.</h1>
-        <p class="lead" data-i18n="s1_p">Öffne „Temvila.dmg“ aus deinen Downloads und zieh Temvila in den Ordner „Programme“. Darin wohne ich.</p>
+        <p class="lead" data-i18n="s1_p">Öffne „Temvila.dmg“ aus deinen Downloads und zieh Temvila in den Ordner „Programme“. Darin wohne ich. Fragt dein Mac beim ersten Start nach, sag einfach <b>„Öffnen“</b> und <b>„Erlauben“</b>.</p>
         <div class="pic"><span class="tile">T</span><span class="arrow">→</span><span class="folder" data-i18n="s1_f">Programme</span></div>
       </div>
       <div class="sub" data-sub="1" hidden>
-        <h1 data-i18n="s2_h">Zweimal Ja sagen.</h1>
-        <p class="lead" data-i18n="s2_p">Beim ersten Start fragt dein Mac, ob du mich öffnen willst: <b>„Öffnen“</b>. Danach möchte ich in „Dokumente“ ein Fach für dein Studio anlegen: <b>„Erlauben“</b>.</p>
-      </div>
-      <div class="sub" data-sub="2" hidden>
-        <h1 data-i18n="s3_h">Code einlösen, KI verbinden.</h1>
-        <p class="lead" data-i18n="s3_p">Tipp auf <b>„Brenda lädt dich ein“</b> und füg den KI-Schlüssel aus deiner Mail ein: 25 $ Kontingent, es kostet dich nichts. Hast du schon Claude oder ChatGPT, geht auch „Mit deiner eigenen KI“. Den Code fügst du unter <b>Einstellungen › Dein Studio &amp; Geld</b> ein, dann hast du Studio Pro.</p>
+        <h1 data-i18n="s3_h">KI verbinden, Code einlösen.</h1>
+        <p class="lead" data-i18n="s3_p">Tipp auf <b>„Brenda lädt dich ein“</b> und füg den KI-Schlüssel aus deiner Mail ein: etwa 22 € zum Ausprobieren, geschenkt. Hast du schon Claude oder ChatGPT, geht auch „Mit deiner eigenen KI“. Den Code fügst du unter <b>Einstellungen › Dein Studio &amp; Geld</b> ein. Fertig.</p>
       </div>
     </div>
     <div class="row">
       <button class="btn ghost" id="sub-back" data-i18n="back">Zurück</button>
-      <button class="btn" id="sub-next">Geschafft</button>
+      <button class="btn" id="sub-next">Weiter</button>
     </div>
   </section>
 
@@ -106,8 +103,9 @@
 
 <script>
 (() => {
-  // The open beta (25.11.2026): no shared word any more. People leave their name and mail first; the personal invitation
-  // code comes by mail after Martin's yes, and the app checks it (Studio Pro for a few weeks, then Studio Light).
+  // The open beta (25.11.2026): no shared word any more. People leave only their mail (the name is asked in the app); Martin
+  // noted that address beforehand, so his Mac mails the personal invitation code within minutes, and the app checks it
+  // (Studio Pro for a few weeks, then Studio Light).
   const KEY = 'brenda-einladung';
   const $ = (s, el = document) => el.querySelector(s);
   const scenes = [...document.querySelectorAll('.scene')];
@@ -119,16 +117,15 @@
   };
   let step = 0, sub = 0;
   // Language: German or English, from the viewer's choice (kept on this device) or the browser; German is the default.
-  const EN = {"hi_h": "Hi, I’m <span class=\"glow\">Brenda.</span>", "hi_p": "I run a small studio on your Mac. You tell me what you want to achieve, and my crew gets to work.", "hi_b": "I’m in", "hi_l": "<a href=\"privacy.html\">What happens to my data?</a>", "su_h": "What may I call you?", "su_p": "Then I’ll send you your personal invitation code by mail.", "cd_h": "Have a look in your <span class=\"glow\">inbox.</span>", "cd_p": "As soon as I’ve seen your sign-up, I’ll send you your personal code. It takes you on from here. Easiest is to tap the link in the mail.", "cd_b": "Continue", "su_l": "<button class=\"link\" data-go=\"3\">I already have my code</button>", "dl_h": "Get the studio.", "dl_p": "Your code fits. Now you can download me.", "dl_m": "macOS 12 or later · about 260 MB · <a id=\"intel\" href=\"https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg\" download>Older Mac with an Intel chip?</a>", "dl_phone": "<b>You’re on your phone right now.</b> I live on the Mac. The link comes again by mail with your code, just open the link from your mail there.", "s1_h": "Into Applications.", "s1_p": "Open “Temvila.dmg” from your Downloads and drag Temvila into the “Applications” folder. That’s where I live.", "s1_f": "Applications", "s2_h": "Say yes twice.", "s2_p": "On the first start your Mac asks whether you want to open me: <b>“Open”</b>. Then I’d like to make a place for your studio in “Documents”: <b>“Allow”</b>.", "s3_h": "Add your code, connect your AI.", "s3_p": "Tap <b>“Brenda invites you”</b> and paste the AI key from your mail: 25 $ of credit, it costs you nothing. Already have Claude or ChatGPT? “With your own AI” works too. Paste the code under <b>Settings › Your studio &amp; money</b> for Studio Pro.", "back": "Back", "end_h": "See you <span class=\"glow\">in the studio.</span>", "end_p": "Just tell me what you have in mind. Now and then I’ll ask how it’s going: after your first result, after one week and after two weeks. Two minutes, promised.", "fb_h": "<b>Your opinion makes me better.</b>", "fb_p": "Notice something, nice or clunky? In the studio under Settings › Feedback. And if nothing works at all: <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>", "again": "<button class=\"link\" data-go=\"4\">Download again</button>", "legal": "<a href=\"privacy.html\">Privacy</a><a href=\"terms.html\">Terms</a><a href=\"imprint.html\">Imprint</a>"};
+  const EN = {"hi_h": "Hi, I’m <span class=\"glow\">Brenda.</span>", "hi_p": "I run a small studio on your Mac. You tell me what you want to achieve, and my crew gets to work.", "hi_b": "I’m in", "hi_l": "<a href=\"privacy.html\">What happens to my data?</a>", "su_h": "Where may I send your <span class=\"glow\">code</span>?", "su_p": "Enter the mail address you were invited with. Your personal code then comes by itself, usually within a few minutes.", "cd_h": "Have a look in your <span class=\"glow\">inbox.</span>", "cd_p": "If you signed up with the address you were invited with, your personal code usually comes within a few minutes. Tap the link in the mail or paste the code here. Nothing came? Write to <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>.", "su_wait": "One moment, the form is loading …", "cd_b": "Continue", "su_l": "<button class=\"link\" data-go=\"3\">I already have my code</button>", "dl_h": "Get the studio.", "dl_p": "Your code fits. Now you can download me.", "dl_m": "macOS 12 or later · about 260 MB · <a id=\"intel\" href=\"https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg\" download>Older Mac with an Intel chip?</a>", "dl_phone": "<b>You’re on your phone right now.</b> I live on the Mac. The link comes again by mail with your code, just open the link from your mail there.", "s1_h": "Into Applications.", "s1_p": "Open “Temvila.dmg” from your Downloads and drag Temvila into the “Applications” folder. That’s where I live. If your Mac asks on the first start, just say <b>“Open”</b> and <b>“Allow”</b>.", "s1_f": "Applications", "s3_h": "Connect AI, add code.", "s3_p": "Tap <b>“Brenda invites you”</b> and paste the AI key from your mail: $25 to try it out, on us. Already have Claude or ChatGPT? “With your own AI” works too. Paste the code under <b>Settings › Your studio &amp; money</b>. Done.", "back": "Back", "end_h": "See you <span class=\"glow\">in the studio.</span>", "end_p": "Just tell me what you have in mind. Now and then I’ll ask how it’s going: after your first result, after one week and after two weeks. Two minutes, promised.", "fb_h": "<b>Your opinion makes me better.</b>", "fb_p": "Notice something, nice or clunky? In the studio under Settings › Feedback. And if nothing works at all: <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>", "again": "<button class=\"link\" data-go=\"4\">Download again</button>", "legal": "<a href=\"privacy.html\">Privacy</a><a href=\"terms.html\">Terms</a><a href=\"imprint.html\">Imprint</a>"};
   const DE = {};
   document.querySelectorAll('[data-i18n]').forEach(el => { DE[el.dataset.i18n] = el.innerHTML; });
   const TXT = {
-    de: { code: 'Dein Code aus der Mail', wrong: 'Dieser Code passt nicht. Kopier ihn am besten noch einmal ganz aus deiner Mail.', late: 'Dieser Code konnte nur bis zu einem bestimmten Tag eingelöst werden. Schreib uns an feedback@temvila.com, dann bekommst du einen neuen.', step: (i) => `Schritt ${i} von 3`, done: 'Geschafft', finish: 'Fertig', hi: 'Wie schön!', hiName: (n) => `Wie schön, ${n}!`, signup: 'Anmeldung' },
-    en: { code: 'Your code from the mail', wrong: "This code doesn't work. Try copying it again from your mail, all of it.", late: 'This code could only be redeemed until a certain day. Write to feedback@temvila.com and you will get a new one.', step: (i) => `Step ${i} of 3`, done: 'Done', finish: 'Finish', hi: 'Wonderful!', hiName: (n) => `Wonderful, ${n}!`, signup: 'Sign-up' },
+    de: { code: 'Dein Code aus der Mail', wrong: 'Dieser Code passt nicht. Kopier ihn am besten noch einmal ganz aus deiner Mail.', late: 'Dieser Code konnte nur bis zu einem bestimmten Tag eingelöst werden. Schreib uns an feedback@temvila.com, dann bekommst du einen neuen.', step: (i) => `Schritt ${i} von 2`, done: 'Weiter', finish: 'Fertig', hi: 'Wie schön!', signup: 'Anmeldung' },
+    en: { code: 'Your code from the mail', wrong: "This code doesn't work. Try copying it again from your mail, all of it.", late: 'This code could only be redeemed until a certain day. Write to feedback@temvila.com and you will get a new one.', step: (i) => `Step ${i} of 2`, done: 'Next', finish: 'Finish', hi: 'Wonderful!', signup: 'Sign-up' },
   };
   let lang = 'de';
   try { lang = localStorage.getItem('temvila-lang') || ((navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en'); } catch { lang = (navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en'; }
-  let hiName = '';
   function applyLang(l) {
     lang = l === 'en' ? 'en' : 'de';
     try { localStorage.setItem('temvila-lang', lang); } catch {}
@@ -138,7 +135,7 @@
     document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     const c = $('#code'); c.placeholder = TXT[lang].code; c.setAttribute('aria-label', TXT[lang].code);
     if ($('#code-hint').dataset.why) $('#code-hint').textContent = TXT[lang][$('#code-hint').dataset.why];
-    $('#hi').textContent = hiName ? TXT[lang].hiName(hiName) : TXT[lang].hi;
+    $('#hi').textContent = TXT[lang].hi;
     $('#tally').title = TXT[lang].signup;
     bindGo();
     if (step === 5) showSub(sub);
@@ -165,7 +162,7 @@
     document.body.dataset.step = n;
     const scene = scenes.find(s => +s.dataset.step === n);
     clip(scene.dataset.clip);
-    if (n === 2) { const f = $('#tally'); if (!f.src) f.src = f.dataset.src; }
+    if (n === 2) { const f = $('#tally'); if (!f.src) { f.src = f.dataset.src; setTimeout(waitLate, 15000); } }
     if (n === 5) showSub(0);
     store.set({ ...(store.get() || {}), step: n });
     const h = scene.querySelector('h1'); if (h && n > 1) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
@@ -176,7 +173,7 @@
     document.querySelectorAll('.sub').forEach(s => { s.hidden = +s.dataset.sub !== i; s.classList.toggle('in', +s.dataset.sub === i); });
     $('#sub-count').textContent = TXT[lang].step(i + 1);
     $('#sub-back').hidden = i === 0;
-    $('#sub-next').textContent = i === 2 ? TXT[lang].finish : TXT[lang].done;
+    $('#sub-next').textContent = i === 1 ? TXT[lang].finish : TXT[lang].done;
   }
 
   // The personal code (signed on Martin's Mac, Ed25519): the page checks the signature with the public key below and the last
@@ -219,22 +216,21 @@
     if (v.architecture === 'x86') $('#dl').href = 'https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg';
   }).catch(() => {});
   $('#sub-back').addEventListener('click', () => showSub(Math.max(0, sub - 1)));
-  $('#sub-next').addEventListener('click', () => sub < 2 ? showSub(sub + 1) : show(6));
+  $('#sub-next').addEventListener('click', () => sub < 1 ? showSub(sub + 1) : show(6));
 
-  // Tally tells the page when the sign-up was sent; then Brenda greets by first name.
+  // Tally's messages (JSON strings with an event name): the form's height (dynamicHeight) and the sign-up sent. Its thank-you
+  // stays readable for a while before Brenda goes on to "look in your inbox" (Anja's test: 1.2 s was too short).
+  // until the form speaks, a calm line instead of an empty card; no word from it in 15 s: where to write instead (Matti 25.11.)
+  let sent = false, heard = false;
+  const WAIT = { de: { late: 'Das Formular lädt gerade nicht. Schreib uns an feedback@temvila.com, dann schicken wir dir deinen Code.' }, en: { late: "The form isn't loading right now. Write to feedback@temvila.com and we'll send you your code." } };
+  const waitLate = () => { if (!heard) { $('#tally-wait').textContent = WAIT[lang].late; $('#tally-wait').classList.add('late'); $('#tally').height = 0; } }; // no empty box; a late form still grows by its own size message
   window.addEventListener('message', e => {
-    if (e.origin !== 'https://tally.so' || typeof e.data !== 'string' || !e.data.includes('Tally.FormSubmitted')) return;
-    try {
-      const d = JSON.parse(e.data);
-      const f = (d.payload && d.payload.fields || []).find(x => x.type === 'INPUT_TEXT');
-      const name = f && String(f.answer && (f.answer.value ?? f.answer) || '').trim().slice(0, 30);
-      if (name) { hiName = name; $('#hi').textContent = TXT[lang].hiName(name); }
-    } catch {}
-    setTimeout(() => show(3), 1200);
-  });
-  window.addEventListener('message', e => {
-    if (e.origin !== 'https://tally.so' || typeof e.data !== 'string' || !e.data.includes('Tally.Resize')) return;
-    try { const h = JSON.parse(e.data).payload.height; if (h > 100 && h < 2000) $('#tally').height = h; } catch {}
+    if (e.origin !== 'https://tally.so' || typeof e.data !== 'string' || !e.data.includes('Tally.')) return;
+    let d; try { d = JSON.parse(e.data); } catch { return; }
+    if (!heard) { heard = true; $('#tally-wait').hidden = true; }
+    const h = d && d.payload && +d.payload.height;
+    if (h > 100 && h < 3000) $('#tally').height = Math.ceil(h) + 8;
+    if (d && d.event === 'Tally.FormSubmitted' && !sent) { sent = true; setTimeout(() => { if (step === 2) show(3); }, 5000); }
   });
 
   if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && !/Macintosh/.test(navigator.userAgent)) document.body.classList.add('phone');
