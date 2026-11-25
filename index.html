@@ -21,21 +21,10 @@
     <div class="floor"></div>
   </div>
 
-  <!-- 0 · Einladungscode -->
-  <section class="scene" data-step="0" data-clip="idle">
-    <h1 data-i18n="gate_h">Schön, dass du da bist.</h1>
-    <p class="lead" data-i18n="gate_p">Temvila ist gerade nur mit Einladung offen. Wie lautet dein Einladungscode?</p>
-    <form id="gate" class="gate" autocomplete="off">
-      <input id="word" type="text" inputmode="text" autocapitalize="none" spellcheck="false" placeholder="Einladungscode" aria-label="Einladungscode" required>
-      <button class="btn" type="submit" data-i18n="gate_b">Weiter</button>
-    </form>
-    <p class="hint" id="gate-hint" role="status"></p>
-  </section>
-
   <!-- 1 · Brenda stellt sich vor -->
-  <section class="scene" data-step="1" data-clip="wave" hidden>
+  <section class="scene" data-step="1" data-clip="wave">
     <h1 data-i18n="hi_h">Hallo, ich bin <span class="glow">Brenda.</span></h1>
-    <p class="lead" data-i18n="hi_p">Ich leite ein kleines Studio auf deinem Mac. Du sagst mir, was du erreichen willst, und meine Crew macht sich an die Arbeit. Gesendet, gepostet oder bezahlt wird nichts ohne dein Ja.</p>
+    <p class="lead" data-i18n="hi_p">Ich leite ein kleines Studio auf deinem Mac. Du sagst mir, was du erreichen willst, und meine Crew macht sich an die Arbeit.</p>
     <button class="btn" data-go="2" data-i18n="hi_b">Ich bin dabei</button>
     <p class="small" data-i18n="hi_l"><a href="datenschutz.html">Was passiert mit meinen Daten?</a></p>
   </section>
@@ -43,29 +32,40 @@
   <!-- 2 · Anmelden -->
   <section class="scene" data-step="2" data-clip="idle" hidden>
     <h1 data-i18n="su_h">Wie darf ich dich nennen?</h1>
-    <p class="lead" data-i18n="su_p">Dann schicke ich dir deinen persönlichen Zugang per Mail.</p>
+    <p class="lead" data-i18n="su_p">Dann schicke ich dir deinen persönlichen Einladungscode per Mail.</p>
     <div class="signup card">
       <iframe id="tally" title="Anmeldung" data-src="https://tally.so/embed/xVJJr5?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="330" frameborder="0"></iframe>
     </div>
-    <p class="small" data-i18n="su_l"><button class="link" data-go="3">Ich habe meinen Zugang schon</button></p>
+    <p class="small" data-i18n="su_l"><button class="link" data-go="3">Ich habe meinen Code schon</button></p>
   </section>
 
-  <!-- 3 · Laden -->
-  <section class="scene" data-step="3" data-clip="cheer" hidden>
+  <!-- 3 · Der persönliche Code aus der Mail öffnet den Download -->
+  <section class="scene" data-step="3" data-clip="idle" hidden>
+    <h1 data-i18n="cd_h">Schau in dein <span class="glow">Postfach.</span></h1>
+    <p class="lead" data-i18n="cd_p">Sobald ich deine Anmeldung gesehen habe, schicke ich dir deinen persönlichen Code. Mit ihm geht es hier weiter. Am einfachsten tippst du in der Mail auf den Link.</p>
+    <form id="code-form" class="gate" autocomplete="off">
+      <input id="code" type="text" inputmode="text" autocapitalize="none" spellcheck="false" required>
+      <button class="btn" type="submit" data-i18n="cd_b">Weiter</button>
+    </form>
+    <p class="hint" id="code-hint" role="status"></p>
+  </section>
+
+  <!-- 4 · Laden -->
+  <section class="scene" data-step="4" data-clip="cheer" hidden>
     <h1><span id="hi">Wie schön!</span> <span class="glow" data-i18n="dl_h">Hol dir das Studio.</span></h1>
-    <p class="lead" data-i18n="dl_p">Während dein Zugang unterwegs ist, kannst du Brenda schon laden.</p>
+    <p class="lead" data-i18n="dl_p">Dein Code passt. Jetzt kannst du mich laden.</p>
     <a id="dl" class="btn big" href="https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila.dmg" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
       Für Mac laden
     </a>
     <p class="meta" data-i18n="dl_m">macOS 12 oder neuer · etwa 260 MB · <a id="intel" href="https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg" download>Älterer Mac mit Intel-Chip?</a></p>
     <div class="card phone-note">
-      <p data-i18n="dl_phone"><b>Du bist gerade am Handy.</b> Ich wohne auf dem Mac. Der Link kommt mit deinem Zugang noch einmal per Mail, öffne ihn einfach dort.</p>
+      <p data-i18n="dl_phone"><b>Du bist gerade am Handy.</b> Ich wohne auf dem Mac. Öffne den Link aus deiner Mail einfach noch einmal dort.</p>
     </div>
   </section>
 
-  <!-- 4 · Einrichten, ein Schritt nach dem anderen -->
-  <section class="scene" data-step="4" data-clip="idle" hidden>
+  <!-- 5 · Einrichten, ein Schritt nach dem anderen -->
+  <section class="scene" data-step="5" data-clip="idle" hidden>
     <p class="eyebrow" id="sub-count">Schritt 1 von 3</p>
     <div class="subs">
       <div class="sub" data-sub="0">
@@ -78,8 +78,8 @@
         <p class="lead" data-i18n="s2_p">Beim ersten Start fragt dein Mac, ob du mich öffnen willst: <b>„Öffnen“</b>. Danach möchte ich in „Dokumente“ ein Fach für dein Studio anlegen: <b>„Erlauben“</b>.</p>
       </div>
       <div class="sub" data-sub="2" hidden>
-        <h1 data-i18n="s3_h">Mit der KI verbinden.</h1>
-        <p class="lead" data-i18n="s3_p">Tipp auf <b>„Brenda lädt dich ein“</b> und füg den Schlüssel aus deiner Mail ein. 25 $ Kontingent, es kostet dich nichts. Hast du schon Claude oder ChatGPT, geht auch „Mit deiner eigenen KI“.</p>
+        <h1 data-i18n="s3_h">Code einlösen, KI verbinden.</h1>
+        <p class="lead" data-i18n="s3_p">Tipp auf <b>„Brenda lädt dich ein“</b> und füg den KI-Schlüssel aus deiner Mail ein: 25 $ Kontingent, es kostet dich nichts. Hast du schon Claude oder ChatGPT, geht auch „Mit deiner eigenen KI“. Den Code fügst du unter <b>Einstellungen › Dein Studio &amp; Geld</b> ein, dann hast du Studio Pro.</p>
       </div>
     </div>
     <div class="row">
@@ -88,15 +88,15 @@
     </div>
   </section>
 
-  <!-- 5 · Los geht's -->
-  <section class="scene" data-step="5" data-clip="wink" hidden>
+  <!-- 6 · Los geht's -->
+  <section class="scene" data-step="6" data-clip="wink" hidden>
     <h1 data-i18n="end_h">Wir sehen uns <span class="glow">im Studio.</span></h1>
     <p class="lead" data-i18n="end_p">Sag mir einfach, was du vorhast. Ich frage dich zwischendurch kurz, wie es läuft: nach deinem ersten Ergebnis, nach einer Woche und nach zwei Wochen. Zwei Minuten, versprochen.</p>
     <div class="card feedback">
       <p data-i18n="fb_h"><b>Deine Meinung macht mich besser.</b></p>
       <p data-i18n="fb_p">Fällt dir etwas auf, ob schön oder hakelig: Im Studio unter Einstellungen › Rückmeldung. Und wenn gar nichts geht: <a class="addr" href="mailto:feedback@temvila.com">feedback@temvila.com</a></p>
     </div>
-    <p class="small" data-i18n="again"><button class="link" data-go="3">Noch einmal laden</button></p>
+    <p class="small" data-i18n="again"><button class="link" data-go="4">Noch einmal laden</button></p>
   </section>
 
   <footer>
@@ -106,8 +106,8 @@
 
 <script>
 (() => {
-  // The invitation code only keeps the page out of casual view; the real access is the personal key from the mail.
-  const WORD = '05c04ec025e2429e8ef0dc571cd5fa22ff065d55f6014083ffc61b15d4203a9c';
+  // The open beta (25.11.2026): no shared word any more. People leave their name and mail first; the personal invitation
+  // code comes by mail after Martin's yes, and the app checks it (Studio Pro for a few weeks, then Studio Light).
   const KEY = 'brenda-einladung';
   const $ = (s, el = document) => el.querySelector(s);
   const scenes = [...document.querySelectorAll('.scene')];
@@ -119,12 +119,12 @@
   };
   let step = 0, sub = 0;
   // Language: German or English, from the viewer's choice (kept on this device) or the browser; German is the default.
-  const EN = {"gate_h": "Lovely to see you.", "gate_p": "Temvila is open by invitation only right now. What’s your invitation code?", "gate_b": "Continue", "hi_h": "Hi, I’m <span class=\"glow\">Brenda.</span>", "hi_p": "I run a small studio on your Mac. You tell me what you want to achieve, and my crew gets to work. Nothing is sent, posted or paid without your yes.", "hi_b": "I’m in", "hi_l": "<a href=\"privacy.html\">What happens to my data?</a>", "su_h": "What may I call you?", "su_p": "Then I’ll send you your personal access by mail.", "su_l": "<button class=\"link\" data-go=\"3\">I already have my access</button>", "dl_h": "Get the studio.", "dl_p": "While your access is on its way, you can already download it.", "dl_m": "macOS 12 or later · about 260 MB · <a id=\"intel\" href=\"https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg\" download>Older Mac with an Intel chip?</a>", "dl_phone": "<b>You’re on your phone right now.</b> I live on the Mac. The link comes again by mail with your access, just open it there.", "s1_h": "Into Applications.", "s1_p": "Open “Temvila.dmg” from your Downloads and drag Temvila into the “Applications” folder. That’s where I live.", "s1_f": "Applications", "s2_h": "Say yes twice.", "s2_p": "On the first start your Mac asks whether you want to open me: <b>“Open”</b>. Then I’d like to make a place for your studio in “Documents”: <b>“Allow”</b>.", "s3_h": "Connect the AI.", "s3_p": "Tap <b>“Brenda invites you”</b> and paste the key from your mail. 25 $ of credit, it costs you nothing. Already have Claude or ChatGPT? “With your own AI” works too.", "back": "Back", "end_h": "See you <span class=\"glow\">in the studio.</span>", "end_p": "Just tell me what you have in mind. Now and then I’ll ask how it’s going: after your first result, after one week and after two weeks. Two minutes, promised.", "fb_h": "<b>Your opinion makes me better.</b>", "fb_p": "Notice something, nice or clunky? In the studio under Settings › Feedback. And if nothing works at all: <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>", "again": "<button class=\"link\" data-go=\"3\">Download again</button>", "legal": "<a href=\"privacy.html\">Privacy</a><a href=\"terms.html\">Terms</a><a href=\"imprint.html\">Imprint</a>"};
+  const EN = {"hi_h": "Hi, I’m <span class=\"glow\">Brenda.</span>", "hi_p": "I run a small studio on your Mac. You tell me what you want to achieve, and my crew gets to work.", "hi_b": "I’m in", "hi_l": "<a href=\"privacy.html\">What happens to my data?</a>", "su_h": "What may I call you?", "su_p": "Then I’ll send you your personal invitation code by mail.", "cd_h": "Have a look in your <span class=\"glow\">inbox.</span>", "cd_p": "As soon as I’ve seen your sign-up, I’ll send you your personal code. It takes you on from here. Easiest is to tap the link in the mail.", "cd_b": "Continue", "su_l": "<button class=\"link\" data-go=\"3\">I already have my code</button>", "dl_h": "Get the studio.", "dl_p": "Your code fits. Now you can download me.", "dl_m": "macOS 12 or later · about 260 MB · <a id=\"intel\" href=\"https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg\" download>Older Mac with an Intel chip?</a>", "dl_phone": "<b>You’re on your phone right now.</b> I live on the Mac. The link comes again by mail with your code, just open the link from your mail there.", "s1_h": "Into Applications.", "s1_p": "Open “Temvila.dmg” from your Downloads and drag Temvila into the “Applications” folder. That’s where I live.", "s1_f": "Applications", "s2_h": "Say yes twice.", "s2_p": "On the first start your Mac asks whether you want to open me: <b>“Open”</b>. Then I’d like to make a place for your studio in “Documents”: <b>“Allow”</b>.", "s3_h": "Add your code, connect your AI.", "s3_p": "Tap <b>“Brenda invites you”</b> and paste the AI key from your mail: 25 $ of credit, it costs you nothing. Already have Claude or ChatGPT? “With your own AI” works too. Paste the code under <b>Settings › Your studio &amp; money</b> for Studio Pro.", "back": "Back", "end_h": "See you <span class=\"glow\">in the studio.</span>", "end_p": "Just tell me what you have in mind. Now and then I’ll ask how it’s going: after your first result, after one week and after two weeks. Two minutes, promised.", "fb_h": "<b>Your opinion makes me better.</b>", "fb_p": "Notice something, nice or clunky? In the studio under Settings › Feedback. And if nothing works at all: <a class=\"addr\" href=\"mailto:feedback@temvila.com\">feedback@temvila.com</a>", "again": "<button class=\"link\" data-go=\"4\">Download again</button>", "legal": "<a href=\"privacy.html\">Privacy</a><a href=\"terms.html\">Terms</a><a href=\"imprint.html\">Imprint</a>"};
   const DE = {};
   document.querySelectorAll('[data-i18n]').forEach(el => { DE[el.dataset.i18n] = el.innerHTML; });
   const TXT = {
-    de: { word: 'Einladungscode', wrong: 'Das passt noch nicht. Schau noch einmal in deine Einladung.', step: (i) => `Schritt ${i} von 3`, done: 'Geschafft', finish: 'Fertig', hi: 'Wie schön!', hiName: (n) => `Wie schön, ${n}!`, signup: 'Anmeldung' },
-    en: { word: 'Invitation code', wrong: 'That’s not it yet. Have another look at your invitation.', step: (i) => `Step ${i} of 3`, done: 'Done', finish: 'Finish', hi: 'Wonderful!', hiName: (n) => `Wonderful, ${n}!`, signup: 'Sign-up' },
+    de: { code: 'Dein Code aus der Mail', wrong: 'Dieser Code passt nicht. Kopier ihn am besten noch einmal ganz aus deiner Mail.', late: 'Dieser Code konnte nur bis zu einem bestimmten Tag eingelöst werden. Schreib uns an feedback@temvila.com, dann bekommst du einen neuen.', step: (i) => `Schritt ${i} von 3`, done: 'Geschafft', finish: 'Fertig', hi: 'Wie schön!', hiName: (n) => `Wie schön, ${n}!`, signup: 'Anmeldung' },
+    en: { code: 'Your code from the mail', wrong: "This code doesn't work. Try copying it again from your mail, all of it.", late: 'This code could only be redeemed until a certain day. Write to feedback@temvila.com and you will get a new one.', step: (i) => `Step ${i} of 3`, done: 'Done', finish: 'Finish', hi: 'Wonderful!', hiName: (n) => `Wonderful, ${n}!`, signup: 'Sign-up' },
   };
   let lang = 'de';
   try { lang = localStorage.getItem('temvila-lang') || ((navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en'); } catch { lang = (navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en'; }
@@ -136,12 +136,12 @@
     const src = lang === 'en' ? EN : DE;
     document.querySelectorAll('[data-i18n]').forEach(el => { if (src[el.dataset.i18n] != null) el.innerHTML = src[el.dataset.i18n]; });
     document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
-    const w = $('#word'); w.placeholder = TXT[lang].word; w.setAttribute('aria-label', TXT[lang].word);
-    if ($('#gate-hint').textContent) $('#gate-hint').textContent = TXT[lang].wrong;
+    const c = $('#code'); c.placeholder = TXT[lang].code; c.setAttribute('aria-label', TXT[lang].code);
+    if ($('#code-hint').dataset.why) $('#code-hint').textContent = TXT[lang][$('#code-hint').dataset.why];
     $('#hi').textContent = hiName ? TXT[lang].hiName(hiName) : TXT[lang].hi;
     $('#tally').title = TXT[lang].signup;
     bindGo();
-    if (step === 4) showSub(sub);
+    if (step === 5) showSub(sub);
   }
   document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
 
@@ -153,21 +153,22 @@
     img.src = src; img.classList.add('pop');
   }
   function show(n) {
-    if (n > 0 && !(store.get() || {}).ok) n = 0;
+    if (n < 1) n = 1;
+    if (n > 3 && !(store.get() || {}).code) n = 3; // the download opens only with a personal code
     step = n;
     scenes.forEach(s => {
       const on = +s.dataset.step === n;
       s.hidden = !on;
       s.classList.toggle('in', on);
     });
-    dots.forEach((d, i) => d.classList.toggle('on', i < n));
+    dots.forEach((d, i) => d.classList.toggle('on', i < n - 1));
     document.body.dataset.step = n;
-    const scene = scenes[n];
+    const scene = scenes.find(s => +s.dataset.step === n);
     clip(scene.dataset.clip);
     if (n === 2) { const f = $('#tally'); if (!f.src) f.src = f.dataset.src; }
-    if (n === 4) showSub(0);
-    if (n > 0) store.set({ ...(store.get() || {}), ok: true, step: n });
-    const h = scene.querySelector('h1'); if (h && n > 0) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    if (n === 5) showSub(0);
+    store.set({ ...(store.get() || {}), step: n });
+    const h = scene.querySelector('h1'); if (h && n > 1) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function showSub(i) {
@@ -178,27 +179,47 @@
     $('#sub-next').textContent = i === 2 ? TXT[lang].finish : TXT[lang].done;
   }
 
-  async function hash(t) {
-    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t));
-    return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+  // The personal code (signed on Martin's Mac, Ed25519): the page checks the signature with the public key below and the last
+  // day to redeem, then opens the download. The app checks the same code again (Studio Pro). The DMG itself stays on GitHub's
+  // public releases: this keeps the page's flow personal, the real licence is the app's check.
+  const KEYS = []; // raw Ed25519 public keys, base64 — the same as in the app's studio-default/einladung.json
+  const b64u = (t) => Uint8Array.from(atob(t.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((t.length + 3) % 4)), (c) => c.charCodeAt(0));
+  const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  async function checkCode(raw) {
+    const code = String(raw || '').replace(/[\s"'„“”‚‘’<>]/g, '');
+    const m = /^TV1-([A-Za-z0-9_-]{20,400})\.([A-Za-z0-9_-]{86})$/.exec(code);
+    if (!m || !KEYS.length) return 'wrong';
+    let body, sig, p;
+    try { body = b64u(m[1]); sig = b64u(m[2]); p = JSON.parse(new TextDecoder().decode(body)); } catch { return 'wrong'; }
+    let signed = false;
+    for (const k of KEYS) {
+      try { const key = await crypto.subtle.importKey('raw', b64u(k), { name: 'Ed25519' }, false, ['verify']); if (await crypto.subtle.verify({ name: 'Ed25519' }, key, sig, body)) signed = true; }
+      catch { signed = signed || 'unknown'; } // an older browser without Ed25519: the app checks it anyway
+    }
+    if (!signed) return 'wrong';
+    if (!p || typeof p.b !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(p.b)) return 'wrong';
+    return today() > p.b ? 'late' : null;
   }
-  $('#gate').addEventListener('submit', async e => {
+  function hint(why) {
+    const h = $('#code-hint'); h.dataset.why = why || ''; h.textContent = why ? TXT[lang][why] : '';
+    if (why) { $('#code-form').classList.remove('shake'); void $('#code-form').offsetWidth; $('#code-form').classList.add('shake'); }
+  }
+  $('#code-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const w = $('#word').value.trim().toLowerCase().replace(/\s+/g, '-');
-    if (await hash(w) === WORD) { store.set({ ok: true, step: 1 }); show(1); return; }
-    $('#gate-hint').textContent = TXT[lang].wrong;
-    $('#gate').classList.remove('shake'); void $('#gate').offsetWidth; $('#gate').classList.add('shake');
+    const why = await checkCode($('#code').value);
+    if (why) { hint(why); return; }
+    hint(null); store.set({ ...(store.get() || {}), code: true }); show(4);
   });
   function bindGo() { document.querySelectorAll('[data-go]').forEach(b => { if (!b.dataset.bound) { b.dataset.bound = '1'; b.addEventListener('click', () => show(+b.dataset.go)); } }); }
-  $('#dl').addEventListener('click', () => setTimeout(() => show(4), 900));
+  $('#dl').addEventListener('click', () => setTimeout(() => show(5), 900));
   // the Intel app: its link comes and goes with the language, so the click is caught on the line
-  document.querySelector('[data-step="3"] .meta').addEventListener('click', (e) => { if (e.target.closest('#intel')) setTimeout(() => show(4), 900); });
+  document.querySelector('[data-step="4"] .meta').addEventListener('click', (e) => { if (e.target.closest('#intel')) setTimeout(() => show(5), 900); });
   // Chrome and Edge say which chip the Mac has: an Intel Mac gets its own app on the big button
   navigator.userAgentData?.getHighEntropyValues?.(['architecture']).then((v) => {
     if (v.architecture === 'x86') $('#dl').href = 'https://github.com/bendermartin-bit/brenda/releases/latest/download/Temvila-Intel.dmg';
   }).catch(() => {});
   $('#sub-back').addEventListener('click', () => showSub(Math.max(0, sub - 1)));
-  $('#sub-next').addEventListener('click', () => sub < 2 ? showSub(sub + 1) : show(5));
+  $('#sub-next').addEventListener('click', () => sub < 2 ? showSub(sub + 1) : show(6));
 
   // Tally tells the page when the sign-up was sent; then Brenda greets by first name.
   window.addEventListener('message', e => {
@@ -219,7 +240,13 @@
   if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && !/Macintosh/.test(navigator.userAgent)) document.body.classList.add('phone');
   applyLang(lang);
   const saved = store.get();
-  show(saved && saved.ok ? Math.min(saved.step || 1, 5) : 0);
+  // the link in the invitation mail carries the code after "#code=" (never sent to the server: it is the address's fragment)
+  const fromLink = /^#code=([A-Za-z0-9_.\-]{20,600})$/.exec(location.hash);
+  if (fromLink) {
+    history.replaceState(null, '', location.pathname);
+    $('#code').value = fromLink[1];
+    checkCode(fromLink[1]).then((why) => { if (!why) { store.set({ ...(store.get() || {}), code: true }); show(4); } else { show(3); hint(why); } });
+  } else show(saved ? Math.min(saved.step || 1, 6) : 1);
 })();
 </script>
 </body>
