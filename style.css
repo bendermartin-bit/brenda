@@ -106,10 +106,6 @@ body[data-step="0"] .dots { visibility: hidden; }
 .small { font-size: 15px; color: var(--soft); margin: 18px 0 0; }
 .small a, .link { color: var(--soft); }
 .link { background: none; border: 0; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; }
-.signup { padding: 10px 14px; text-align: left; }
-.signup iframe { display: block; border: 0; }
-.tally-wait { margin: 6px 0 0; text-align: center; }
-.tally-wait.late { color: var(--ink, inherit); }
 .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--vio); margin: 8px 0 0; }
 .pic { display: flex; align-items: center; justify-content: center; gap: 18px; margin: -6px 0 26px; }
 .pic .tile { width: 58px; height: 58px; border-radius: 15px; display: grid; place-items: center; font: 30px var(--serif); color: #fff; background: linear-gradient(135deg, var(--sun-a), var(--sun-b)); box-shadow: 0 8px 20px rgba(120, 80, 20, .25); animation: slide 2.4s ease-in-out infinite; }
