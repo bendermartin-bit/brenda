@@ -133,6 +133,7 @@
     });
     document.body.dataset.step = n;
     const scene = scenes.find(s => +s.dataset.step === n);
+    if (n === 4) new Image().src = 'a/brenda-walk.webp';
     if (n === 6) end(fresh); else { clearTimeout(endTimer); stage.className = 'brenda'; clip(scene.dataset.clip); }
     store.set({ ...(store.get() || {}), step: n });
     const h = scene.querySelector('h1'); if (h && n > 1) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
@@ -156,11 +157,11 @@
     img.classList.remove('pop'); void stage.offsetWidth;
     stage.classList.add('joy');
     endTimer = setTimeout(() => {
-      img.src = 'a/brenda-wave.webp';
+      img.src = 'a/brenda-walk.webp'; // the pitch's walk (side view, facing right), played a little faster
       stage.classList.add('leave');
       scene.classList.add('shown'); // the sentence and the box come in after her, by their own delays (style.css)
-      endTimer = setTimeout(() => stage.classList.add('gone'), 1250);
-    }, 1500);
+      endTimer = setTimeout(() => stage.classList.add('gone'), 2500);
+    }, 1300);
   }
 
   // The personal code (signed on Martin's Mac, Ed25519): the page checks the signature with the public key below and the last
