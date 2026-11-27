@@ -89,7 +89,6 @@ footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
 .scene h1:focus { outline: none; }
 .scene .lead { margin: 0 auto 26px; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.sub.in { animation: rise .5s cubic-bezier(.2, .8, .2, 1) both; }
 .btn { border: 0; cursor: pointer; font-family: var(--sans); }
 .btn.big { font-size: 19px; padding: 18px 34px; }
 .btn.ghost { background: transparent; color: var(--ink); box-shadow: none; border: 1px solid var(--rule); }
@@ -102,12 +101,6 @@ footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
 .small { font-size: 15px; color: var(--soft); margin: 18px 0 0; }
 .small a, .link { color: var(--soft); }
 .link { background: none; border: 0; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; }
-.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--vio); margin: 8px 0 0; }
-.pic { display: flex; align-items: center; justify-content: center; gap: 18px; margin: -6px 0 26px; }
-.pic .tile { width: 58px; height: 58px; border-radius: 15px; display: grid; place-items: center; font: 30px var(--serif); color: #fff; background: linear-gradient(135deg, var(--sun-a), var(--sun-b)); box-shadow: 0 8px 20px rgba(120, 80, 20, .25); animation: slide 2.4s ease-in-out infinite; }
-.pic .arrow { color: var(--faint); font-size: 22px; }
-.pic .folder { padding: 16px 18px; border-radius: 14px; border: 1px dashed var(--rule); color: var(--soft); font-size: 14px; background: var(--card); }
-@keyframes slide { 0%, 20% { transform: none; } 60%, 80% { transform: translateX(14px); opacity: .6; } 100% { transform: none; } }
 .row { display: flex; justify-content: center; gap: 12px; }
 .stage .feedback { text-align: left; margin: 0 0 4px; }
 .stage .feedback .addr { color: #fff; font-weight: 600; }
@@ -119,7 +112,7 @@ footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
   .gate .btn { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scene, .sub.in, .brenda img.pop, .pic .tile, .gate.shake { animation: none; }
+  .scene, .brenda img.pop, .gate.shake { animation: none; }
 }
 .phone-note { display: none; text-align: left; margin-top: 18px; }
 body.phone #dl, body.phone [data-step="3"] .meta { display: none; }
@@ -138,3 +131,32 @@ body.phone [data-step="3"] .lead { display: none; }
 /* Martin 25.11.: the greeting on its own line, room between a big button and the line below it */
 #hi { display: block; }
 .btn.big + .meta, .btn.big + .small { margin-top: 26px; }
+
+/* Martin 27.11.: after the download Brenda is glad, waves and walks out of the picture; then the sentence and the feedback box */
+.brenda { transition: height .45s cubic-bezier(.4, 0, .2, 1), margin .45s ease; }
+.brenda.joy img { animation: joy .9s cubic-bezier(.3, 1.5, .5, 1) .15s 1 both; }
+@keyframes joy { 0% { transform: none; } 35% { transform: translateY(-22px) scale(1.03); } 60% { transform: none; } 78% { transform: translateY(-8px); } 100% { transform: none; } }
+.brenda.leave img { animation: walk 1.25s cubic-bezier(.45, 0, .7, .4) both; }
+.brenda.leave .floor { transition: opacity .9s ease .2s; opacity: 0; }
+@keyframes walk {
+  0% { transform: none; opacity: 1; }
+  12% { transform: translate(6vw, -9px) rotate(2deg); }
+  25% { transform: translate(13vw, 0) rotate(-1deg); }
+  37% { transform: translate(21vw, -9px) rotate(2deg); }
+  50% { transform: translate(30vw, 0) rotate(-1deg); }
+  62% { transform: translate(39vw, -9px) rotate(2deg); }
+  75% { transform: translate(48vw, 0) rotate(-1deg); opacity: 1; }
+  100% { transform: translate(64vw, -6px); opacity: 0; }
+}
+.brenda.gone { height: 0; margin-top: 0; }
+.brenda.gone img, .brenda.gone .floor { opacity: 0; }
+.scene[data-step="6"] .later { opacity: 0; transform: translateY(14px); }
+.scene[data-step="6"].shown .later { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2, .8, .2, 1); }
+.scene[data-step="6"].shown .l1 { transition-delay: 1.35s; }
+.scene[data-step="6"].shown .l2 { transition-delay: 1.9s; }
+.scene[data-step="6"].shown .l3 { transition-delay: 2.3s; }
+.scene[data-step="6"].shown.now .later { transition: none; }
+.scene[data-step="6"] h1 { margin-top: 40px; }
+.scene[data-step="6"] [data-invite] { margin: 4px 0 30px; }
+.scene[data-step="6"] .feedback { margin-top: 6px; }
+@media (prefers-reduced-motion: reduce) { .brenda.joy img, .brenda.leave img { animation: none; } }
